@@ -229,7 +229,7 @@
 
         //***std
         async function loadContract() {
-            return await new web3.eth.Contract(abi, '0x54f17BaC8f2705E80231f25fE0B59ebD4765194D');
+            return await new web3.eth.Contract(abi, '0xf52d1c50CF7e0b464AD6ac7d97Fbe64eA8194cea');
         }
 
         async function load() {
@@ -246,9 +246,34 @@
 
         var i = 0;
 
+        $("#btn1").click(function() {
+            console.log(currentAccount);
+            console.log($("#char1").text(),time)
+            web3.contract.methods.btn1($("#char1").text(),currentAccount,time) //use method send
+                .send({from: currentAccount,value: web3.utils.toWei("0.0000007","ether")}
+                ,function(error,result){$("#result").html(result);
+            });
+            web3.contract.once('NameAdded',{},function(error,event){
+                if(!error){
+                    //addData(event.returnValues.time,event.returnValues.name,event.returnValues.from);
+                    console.log(event)
+                    console.log("successful purchase " + event.returnValues.name + event.returnValues.time)
+                    $("#result").html("Name: "+ event.returnValues.name + "Time: "+event.returnValues.time +"<br> => Hashed as " + event.returnValues.hash);
+                    window.location.reload();
+                }
+            });
+            web3.contract.once('RegistrationError',{},function(error,event){
+                if(!error){
+                    console.log("Error: "+event.returnValues.text+" Reason: "+event.returnValues.reason);
+                    $("#result").html("Error: "+ event.returnValues.text+"<br> => Reason: " + event.returnValues.reason);
+                    // window.location.reload();
+                }
+            });
+        }); 
+
         function btnChoose(c, v) {
             console.log(currentAccount);
-            web3.contract.methods.buy(c).send({ from: currentAccount, value: v }, function (error, result) {
+             web3.contract.methods.buy(c).send({ from: currentAccount, value: v }, function (error, result) {
                 $("#result").html(result);
             });
             web3.contract.once("Add", {}, function (error, event) {
@@ -269,7 +294,7 @@
                     $("#owner" + i).html(event.returnValues.owner);
                 }
             });
-        }
+        } 
 
         load();
     </script>
