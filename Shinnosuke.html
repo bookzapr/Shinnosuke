@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shinnosuke_Family</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- 
+        <script src="./node_modules/web3/dist/web3.min.js">
+        </script> 
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align:center" class="labelh1">Shinnosuke</h1>
+
+        <div class="grid-container">
+
+         
+            <div class="grid-item">
+                <label class="label1">
+                    Shinnosuke
+                </label>
+                <img src="image/Shinnosuke.jpg" width="250px" height="250" alt="Shinnosuke">
+                <!-- str -->
+                <div class="button">
+                    <button class="btn1" id="button" onclick="btnChoose('Shinnosuke',90000000000000)">
+                        BUY
+                    </button>
+                </div>
+                <label class="labelv1">0.00009 ETH</label>
+            </div>
+
+           
+            <div class="grid-item">
+                <label class="label2">
+                    Himawari
+                </label>
+                <img src="image/Himawari.jpg" width="250px" height="250" alt="Himawari">
+                <!-- str -->
+                <div class="button">
+                    <button class="btn2" id="document1" onclick="btnChoose('Himawari',90000000000000)">
+                        BUY
+                    </button>
+                </div>
+                <label class="labelv2">0.00009 ETH</label>
+            </div>
+
+        
+            <div class="grid-item">
+                <label class="label3">
+                    Misae
+                </label>
+                <img src="image/Misae.jpg" width="250px" height="250" alt="Misae">
+                <!-- str -->
+                <div class="button">
+                    <button class="btn3" id="document1" onclick="btnChoose('Misae',60000000000000)">
+                        BUY
+                    </button>
+                </div>
+                <label class="labelv3">0.00006 ETH</label>
+            </div>
+
+            <div class="grid-item">
+                <label class="label4">
+                    Hiroshi
+                </label>
+                <img src="image/Hiroshi.jpg" width="250px" height="250" alt="Hiroshi">
+                <!-- str -->
+                <div class="button">
+                    <button class="btn4" id="document1" onclick="btnChoose('Hiroshi',70000000000000)">
+                        BUY
+                    </button>
+                </div>
+                <label class="labelv4">0.00007 ETH</label>
+            </div>
+
+           
+            <div class="grid-item">
+                <label class="label5">
+                    Shiro
+                </label>
+                <img src="image/Shiro.jpg" width="250px" height="250" alt="Shiro">
+                <!-- str -->
+                <div class="button">
+                    <button class="btn5" id="document1" onclick="btnChoose('Shiro',20000000000000)">
+                        BUY
+                    </button>
+                </div>
+                <label class="labelv5">0.00002 ETH</label>
+            </div>
+
+            
+            <div class="grid-item">
+                <label class="label6">
+                    Buriburizaemon
+                </label>
+                <img src="image/Buriburizaemon.jpg" width="250px" height="250" alt="Buriburizaemon">
+                <!-- str -->
+                <div class="button">
+                    <button class="btn6" id="document1" onclick="btnChoose('Buriburizaemon',20000000000000)">
+                        BUY
+                    </button>
+                </div>
+                <label class="labelv6">0.00002 ETH</label>
+            </div>
+        </div>
+
+        <body>
+            <table>
+                <tr>
+                    <th class="labeltable">Time</th>
+                    <th class="labeltable">Character</th>
+                    <th class="labeltable">Owner (address)</th>
+                </tr>
+                <tr>
+                    <td id="time1" class="labeltablecon"> </td>
+                    <td id="character1" class="labeltablecon"> </td>
+                    <td id="owner1" class="labeltablecon"> </td>
+                </tr>
+                <tr>
+                    <td id="time2" class="labeltablecon"> </td>
+                    <td id="character2" class="labeltablecon"> </td>
+                    <td id="owner2" class="labeltablecon"> </td>
+                </tr>
+                <tr>
+                    <td id="time3" class="labeltablecon"> </td>
+                    <td id="character3" class="labeltablecon"> </td>
+                    <td id="owner3" class="labeltablecon"> </td>
+                </tr>
+                <tr>
+                    <td id="time4" class="labeltablecon"> </td>
+                    <td id="character4" class="labeltablecon"> </td>
+                    <td id="owner4" class="labeltablecon"> </td>
+                </tr>
+                <tr>
+                    <td id="time5" class="labeltablecon"> </td>
+                    <td id="character5" class="labeltablecon"> </td>
+                    <td id="owner5" class="labeltablecon"> </td>
+                </tr>
+                <tr>
+                    <td id="time6" class="labeltablecon"> </td>
+                    <td id="character6" class="labeltablecon"> </td>
+                    <td id="owner6" class="labeltablecon"> </td>
+                </tr>
+            </table>
+        </body>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+    </script>
+
+    <script>
+        // ===Connecting to MetaMask===
+        function loadWeb3() {
+            if (window.ethereum) {
+                // To get web3(.js) object
+                web3 = new Web3(window.ethereum)
+
+                // To request user's account from Metamask
+                ethereum
+                    .request({ method: 'eth_requestAccounts' })
+                    .then(handleAccountsChanged)
+                    .catch((err) => {
+                        if (err.code === 4001) {
+                            // If this happens, the user rejected the connection request.
+                            console.log('Please connect to MetaMask.');
+                        } else {
+                            console.error(err);
+                        }
+                    });
+            }
+        }
+
+        // ===Handle user accounts and accountsChanged===
+        let currentAccount = null;
+
+        // Note that this event is emitted on page load.
+        // If the array of accounts is non-empty, you're already connected.
+        window.ethereum.on('accountsChanged', handleAccountsChanged);
+
+        // For now, 'eth_accounts' will continue to always return an array
+        function handleAccountsChanged(accounts) {
+            if (accounts.length === 0) {
+                // MetaMask is locked or the user has not connected any accounts
+                console.log('Please connect to MetaMask.');
+            } else if (accounts[0] !== currentAccount) {
+                currentAccount = accounts[0];
+                // Do any other work!
+            }
+        }
+
+        let abi = [
+        [
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "character",
+				"type": "string"
+			}
+		],
+		"name": "Add",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			}
+		],
+		"name": "buy",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	}
+]
+        ];
+
+        //***std
+        async function loadContract() {
+            return await new web3.eth.Contract(abi, '0x54f17BaC8f2705E80231f25fE0B59ebD4765194D');
+        }
+
+        async function load() {
+            await loadWeb3();
+            web3.contract = await loadContract();
+            updateStatus('Ready!');
+        }
+
+        function updateStatus(status) {
+            const statusEl = document.getElementById('status');
+            statusEl.innerHTML = status;
+            console.log(status);
+        }
+
+        var i = 0;
+
+        function btnChoose(c, v) {
+            console.log(currentAccount);
+            web3.contract.methods.buy(c).send({ from: currentAccount, value: v }, function (error, result) {
+                $("#result").html(result);
+            });
+            web3.contract.once("Add", {}, function (error, event) {
+                if (!error) {
+                    console.log(event);
+                    console.log("aya");
+                    var h = new Date().getHours();
+                    var m = new Date().getMinutes();
+                    var s = new Date().getSeconds();
+                    $("#result").html(
+                        "Name:" + event.returnValues.character +
+                        "<br/>time:" + h + ":" + m + ":" + s +
+                        "<br/>owner:" + event.returnValues.owner
+                    );
+                    i++;
+                    $("#time" + i).html(h + ":" + m + ":" + s);
+                    $("#character" + i).html(event.returnValues.character);
+                    $("#owner" + i).html(event.returnValues.owner);
+                }
+            });
+        }
+
+        load();
+    </script>
+</body>
+
+</html>

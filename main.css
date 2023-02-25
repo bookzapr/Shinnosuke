@@ -1,0 +1,245 @@
+@font-face {
+    font-family: 'Kindkitty';
+    src: url('./font/KindKittyRegular-eZdlx.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pinkbask';
+    src: url('./font/PinkBaskRegular-WynGz.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    background-color:#f9e63fc6;
+    padding: 2em;
+    font-family: 'Raleway','Source Sans Pro', 'Arial';
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+label {
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+}
+.label1 {
+    color:#000000;
+    font-family: 'Kindkitty';
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.label2 {
+    color:#000000;
+    font-family: 'Kindkitty';
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.label3 {
+    color:#000000;
+    font-family: 'Kindkitty';
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.label4 {
+    color:#000000;
+    font-family: 'Kindkitty';
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.label5 {
+    color:#000000;
+    font-family: 'Kindkitty';
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.label6 {
+    color:#000000;
+    font-family: 'Kindkitty';
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.labelv1 {
+    color:#000000;
+    font-family: 'Kindkitty';
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.labelv2 {
+    color:#000000;
+    font-family: 'Kindkitty';
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.labelv3 {
+    color:#000000;
+    font-family: 'Kindkitty';
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.labelv4 {
+    color:#000000;
+    font-family: 'Kindkitty';
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.labelv5 {
+    color:#000000;
+    font-family: 'Kindkitty';
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.labelv6 {
+    color:#000000;
+    font-family: 'Kindkitty';
+    display:block;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.labeltable {
+    color:#13010e;
+    font-family: 'Kindkitty';
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:32px
+}
+.labeltablecon {
+    color:#eaff64;
+    font-family: 'Pinkbask';
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size:24px
+}
+.labelh1 {
+    color:#090e0e;
+    font-family: 'Pinkbask';
+    display:block;
+    margin-bottom:10px;
+    margin-top:10px;
+    font-weight: bold;
+    font-size:100px
+}
+input {
+    padding:10px;
+    width: 100%;
+    margin-bottom: 1em;
+}
+button {
+    margin: 2em 0;
+    padding: 1em 4em;
+    display:block;
+    font-size: medium;
+}
+#result {
+    padding:1em;
+    background-color:#3e0c0c;
+    margin: 1em 0;
+}
+
+.btn1 {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 25px;
+    font-family: 'Pinkbask';
+}
+
+.btn2 {
+    background-color: #ffffff;
+    color: #01181bfa;
+    font-size: 25px;
+    font-family: 'Pinkbask';
+}
+
+.btn3 {
+    background-color: #ffffff;
+    color: #161702;
+    font-size: 25px;
+    font-family: 'Pinkbask';
+}
+
+.btn4 {
+    background-color: #ffffff;
+    color: #221204;
+    font-size: 25px;
+    font-family: 'Pinkbask';
+}
+
+.btn5 {
+    background-color: #ffffff;
+    color: #1a1303;
+    font-size: 25px;
+    font-family: 'Pinkbask';
+}
+
+.btn6 {
+    background-color: #ffffff;
+    color: #271a04;
+    font-size: 25px;
+    font-family: 'Pinkbask';
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: #f9e63fc6;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #ffffff;
+    color: white;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #eb6410c6;
+}
+
